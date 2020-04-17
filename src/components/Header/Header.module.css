@@ -1,0 +1,9 @@
+.AppHead {
+    grid-area: header;
+    background-color: cadetblue;
+  }
+  
+  .AppHead img {
+    height: 90px;
+    width: auto;
+  }

@@ -5,31 +5,8 @@
   grid-template-areas: 
   "header header"
   "nav content";
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 90px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
 }
 
-.app-head {
-  grid-area: header;
-  background-color: cadetblue;
-}
-
-.app-head img {
-  height: 60px;
-  width: auto;
-}
-
-.app-nav {
-  grid-area: nav;
-  background-color: coral;
-}
-
-.content { 
-  grid-area: content;
-  background-color: darkolivegreen;
-}
-
-.content .hero-photo {
-  width: 100%;
-}

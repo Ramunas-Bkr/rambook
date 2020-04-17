@@ -1,22 +1,23 @@
 import React from 'react'
+import classes from './Navbar.module.css'
 
 const Navbar = () => {
     return (
-        <nav className="app-nav">
-        <div>
-          <a>Profile</a>
+        <nav className={classes.Navbar}>
+        <div className={classes.item}>
+            Profile
         </div>
-        <div>
-          <a>Messages</a>
+        <div className={`${classes.item} ${classes.active}`}>
+            Messages
         </div>
-        <div>
-          <a>News</a>
+        <div className={classes.item}>
+            News
         </div>
-        <div>
-          <a>Music</a>
+        <div className={classes.item}>
+            Music
         </div>
-        <div>
-          <a>Settings</a>
+        <div className={classes.item}>
+            Settings
         </div>
       </nav>
     )

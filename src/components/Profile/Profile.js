@@ -1,10 +1,11 @@
 import React from 'react'
+import classes from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <div className="content">
-            <div className="hero-photo">
-                <img src="https://www.mountain-forecast.com/images/mtn_home.jpg" alt="photo" />
+        <div className={classes.Content}>
+            <div className={classes.HeroPhoto}>
+                <img src="https://www.mountain-forecast.com/images/mtn_home.jpg" alt="hero" />
             </div>
             <div>
                 Avatar + description
