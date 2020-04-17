@@ -1,0 +1,41 @@
+.Post {
+    display: inline-block;
+    width: 100%;
+    margin: 20px;
+}
+.PostBlock {
+    display: inline-block;
+    width: 100%;
+}
+
+.Avatar {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.Avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.PostBlock p {
+    display: inline-block;
+    margin-left: 20px;
+    width: 80%;
+    vertical-align: top;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.icons {
+    margin-left: 100px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.icons i {
+    margin-right: 10px;
+}
