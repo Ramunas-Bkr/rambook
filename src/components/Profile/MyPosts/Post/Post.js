@@ -1,20 +1,16 @@
 import React from 'react'
 import classes from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={classes.Post}>
             <div className={classes.PostBlock}>
                 <div className={classes.Avatar}>
-                    <img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP2538-CUSA05620_00-AV00000000000108/1584036216000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000" alt="avatar" />
+                    <img src={props.image} alt="avatar" />
                 </div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
-                    explicabo reprehenderit optio amet ab temporibus asperiores quasi
-                    cupiditate.
-                    Voluptatum ducimus voluptates voluptas?
-            </p>
+                    {props.message}
+                </p>
             </div>
             <div className={classes.icons}>
                 <i className="fas fa-thumbs-up"></i>
@@ -22,6 +18,7 @@ const Post = () => {
                 <i className="fas fa-heart"></i>
                 <i className="fas fa-sad-tear"></i>
                 <i className="fas fa-angry"></i>
+                <span>{props.likecount}</span>
             </div>
         </div>
     )
