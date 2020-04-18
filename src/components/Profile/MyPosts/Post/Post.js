@@ -20,6 +20,7 @@ const Post = (props) => {
                 <i className="fas fa-angry"></i>
                 <span>{props.likecount}</span>
             </div>
+            
         </div>
     )
 }
