@@ -1,3 +1,21 @@
 .MyPosts {
-    
+    margin-left: 20px;
+}
+
+.postHeader {
+    color: #fff;
+    font-size: 35px;
+}
+
+.postTextArea {
+    width: 600px;
+    height: 100px;
+    max-width: 600px;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.postButton {
+    padding: 5px 10px;
+    margin-bottom: 10px;
 }

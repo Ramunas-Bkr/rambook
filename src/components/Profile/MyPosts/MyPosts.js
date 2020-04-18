@@ -5,9 +5,12 @@ import Post from './Post/Post'
 function MyPosts() {
     return (
         <div className={classes.MyPosts}>
-            My posts
+            <h3 className={classes.postHeader}> My posts </h3>
             <div>
-                New posts
+                <textarea className={classes.postTextArea}></textarea>
+            </div>
+            <div>
+                <button className={classes.postButton}>Išsaugoti pranešimą</button>
             </div>
             <Post
                 message='Šiuo metu pasaulis užsidaręs. Turizmo srityje viskas sustojo.

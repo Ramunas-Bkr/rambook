@@ -1,0 +1,17 @@
+.user {
+    padding-bottom: 20px;
+}
+
+.user a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.user a:hover {
+    color: rgb(202, 197, 197);
+}
+
+
+.user .active {
+    color: rgb(217, 245, 139);
+}
