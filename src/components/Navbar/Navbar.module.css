@@ -4,7 +4,6 @@
   }
 
 .item {
-    color: white;
     margin-top: 10px;
     text-align: center;
 }
@@ -12,6 +11,16 @@
     margin-top: 30px;
 }
 
-.active {
-    color: cornflowerblue;
+.item a {
+    text-decoration: none;
+    color: #fff;
+    transition: color .5s;
+}
+
+.item a:hover {
+    color: rgb(202, 197, 197);
+}
+
+.item a.active {
+    color: rgb(82, 94, 116);
 }
