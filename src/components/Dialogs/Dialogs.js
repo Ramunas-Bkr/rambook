@@ -3,19 +3,23 @@ import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './MessageItem/MessageItem'
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+
+    const item = props.dialogsItem.map(
+        d => <DialogItem name={d.name} id={d.id} />
+    )
+
+    const messageItem = props.messages.map(
+        m => <MessageItem message={m.message} key={m.id} />
+    )
+
     return (
         <div className={classes.Dialogs}>
             <div className={classes.users}>
-                <DialogItem name="Ramūnas" id="1" />
-                <DialogItem name="Živilė" id="2" />
-                <DialogItem name="Elzė" id="3" />
-                <DialogItem name="Monmorensis" id="4" />
+                {item}
             </div>
             <div className={classes.messages}>
-                <MessageItem message="Labas, kaip tu laikais" />
-                <MessageItem message="Ką tu? Ką vakare?" />
-                <MessageItem message="Nieko visai" />
+                {messageItem}
             </div>
         </div>
     )
