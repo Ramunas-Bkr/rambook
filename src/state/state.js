@@ -45,9 +45,25 @@ let state = {
             }
         ],
         messages: [
-            {id: 5, message:'Labas, kaip tu laikais?'},
-            {id: 6, message:'Ką tu? Ką vakare?'},
-            {id: 7, message:'Nieko visai'}
+            {
+                ownersAwatar: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
+                friendsAwatar: 'https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-happy-monster-square-avatar-funny-monster-mask-blue-design-t-shirt-sticker-print-97157979.jpg',
+                ownersMessage: 'Labas, kaip tu laikais?',
+                friendsMessage: 'Labas'
+            },
+            {
+                ownersAwatar: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
+                freindsAwatar: 'https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-happy-monster-square-avatar-funny-monster-mask-blue-design-t-shirt-sticker-print-97157979.jpg',
+                ownersMessage: 'Ką tu? Ką vakare?',
+                friendsMessage: 'Nieko visai'
+            },
+            {
+                ownersAwatar: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
+                friendsAwatar: 'https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-happy-monster-square-avatar-funny-monster-mask-blue-design-t-shirt-sticker-print-97157979.jpg',
+                ownersMessage: 'Gal į virtuvę?',
+                friendsMessage: ''
+            },
+            
         ]
     },
     navbar: {

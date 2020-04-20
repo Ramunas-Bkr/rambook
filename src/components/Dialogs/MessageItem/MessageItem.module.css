@@ -2,3 +2,67 @@
     padding-bottom: 20px;
     color: #fff;
 }
+
+.owner {
+    display: inline-block;
+    width: 80%;
+    border: 1px solid #fff;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.avatar {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px;
+    }
+
+
+.avatar img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.owner p {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 35px;
+    margin-left: 20px;
+}
+
+.friend {
+    width: 80%;
+    border: 1px solid #fff;
+    margin: 10px;
+    margin-left: 100px;
+    border-radius: 15px;
+    float: right;
+}
+
+.friend .avatar {
+    float: right;
+}
+
+.friend p {
+    float: right;
+    vertical-align: top;
+    margin-top: 35px;
+    margin-right: 20px;
+}
+
+.postTextArea {
+    width: 600px;
+    height: 100px;
+    max-width: 600px;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.postButton {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}

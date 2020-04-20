@@ -11,15 +11,21 @@ function MyPosts(props) {
         key={p.id}
     /> )
     
+    let newPageElement = React.createRef()
+
+    let addPost = () => {
+        let text = newPageElement.current.value
+        alert (text)
+    }
 
     return (
         <div className={classes.MyPosts}>
             <h3 className={classes.postHeader}> My posts </h3>
             <div>
-                <textarea className={classes.postTextArea}></textarea>
+                <textarea ref={newPageElement} className={classes.postTextArea}></textarea>
             </div>
             <div>
-                <button className={classes.postButton}>Išsaugoti pranešimą</button>
+                <button onClick={addPost} className={classes.postButton}>Išsaugoti pranešimą</button>
             </div>
             {postElement}
         </div>

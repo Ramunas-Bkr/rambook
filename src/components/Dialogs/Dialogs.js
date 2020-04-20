@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './MessageItem/MessageItem'
+import MessageSender from './MessageSender/MessageSender'
 
 const Dialogs = (props) => {
 
@@ -10,7 +11,12 @@ const Dialogs = (props) => {
     )
 
     const messageItem = props.state.messages.map(
-        m => <MessageItem message={m.message} key={m.id} />
+        m => <MessageItem
+                ownersAwatar={m.ownersAwatar}
+                friendsAwatar={m.friendsAwatar}
+                ownersMessage={m.ownersMessage}
+                friendsMessage={m.friendsMessage}
+            />
     )
 
     return (
@@ -20,7 +26,9 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 {messageItem}
+                <MessageSender />
             </div>
+            
         </div>
     )
 }
