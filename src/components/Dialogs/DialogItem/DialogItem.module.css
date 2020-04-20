@@ -1,5 +1,6 @@
 .user {
     padding-bottom: 20px;
+    
 }
 
 .user a {
@@ -15,3 +16,29 @@
 .user .active {
     color: rgb(217, 245, 139);
 }
+
+.person {
+    display: inline-block;
+}
+
+.personAvatar {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+.personAvatar img {
+    width: 100%;
+    height: auto;
+}
+
+.person p {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+    margin-top: 30px;
+}
+

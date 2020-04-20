@@ -4,7 +4,7 @@ import Post from './Post/Post'
 
 function MyPosts(props) {
 
-    const postElement = props.posts.map( p => 
+    const postElement = props.state.posts.map( p => 
     <Post message={p.message}
         image={p.image}
         likecount={p.likecount}

@@ -8,9 +8,9 @@ const Profile = (props) => {
     return (
         <div className={classes.Profile}>
             <ProfileInfo />
-            <MyPosts posts={props.posts} />
+            <MyPosts state={props.state} />
       </div>
     )
 }
-
+ 
 export default Profile

@@ -13,10 +13,10 @@ function App(props) {
   return (
       <div className={styles.App}>
         <Header />
-        <Navbar />
+        <Navbar state={props.state.navbar}/>
         <div className={styles.content}>
-          <Route path='/profile' render={ () => <Profile posts={props.posts} />} />
-          <Route path='/dialogs' render={ () => <Dialogs dialogsItem={props.dialogsItem} messages={props.messages}/>} />
+          <Route path='/profile' render={ () => <Profile state={props.state.profilePage} />} />
+          <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage} />} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />

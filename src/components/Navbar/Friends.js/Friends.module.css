@@ -1,0 +1,24 @@
+.Friends {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.avatar {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.Friends p {
+    color: #fff;
+    margin-top: 1px;
+}
