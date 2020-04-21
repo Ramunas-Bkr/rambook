@@ -1,22 +1,21 @@
+import { newRender } from "../render";
+
 let state = {
     profilePage: {
         posts: [
             {
                 id: 1,
                 message: 'Šiuo metu pasaulis užsidaręs. Turizmo srityje viskas sustojo. konomika krenta žemyn. Kelionės arba prisiminimuose, arba svajonėse.',
-                image: 'https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP2538-CUSA05620_00-AV00000000000108/1584036216000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000',
                 likecount: 20
             },
             {
-                id: 1,
+                id: 2,
                 message: 'Sveiki gyvi! Nors del dabartines situacijos visi priversti siek tiek sustoti, pazaiskim! Imeskite savo ispudingiausia uzfiksuota akimirka 😍 tikiu, kad turite ju daugybe 😎 pakeliaukime cia ir dabar! Mano akimirka is zygio i Trolio liezuvi Grazios dienos!',
-                image: 'https://avatarfiles.alphacoders.com/212/212278.jpg',
                 likecount: 15
             },
             {
-                id: 1,
+                id: 3,
                 message: 'Sveiki! Domina ar keiciant i identiska kelione 2021 metams jums pakilo keliones kaina, del to kad keiciasi vaiku amzius siais metais yra 2 ir 4 m. o kadangi kitais metais vaikai didesni ir agentura teigia jog kambario tipas keiciasi privalomai. (Novaturas) mes sutinkame likti to pacio tipo kambaryje, bet teigia kad neimanoma, reik moketi priemoka ir viskas.',
-                image: 'https://ets2.lt/wp-content/uploads/2018/04/Funny-Avatar-Mr-Bean-Smiling-Photoshop-Image.jpg?x46304',
                 likecount: 5
             }
         ],
@@ -46,22 +45,16 @@ let state = {
         ],
         messages: [
             {
-                ownersAwatar: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
-                friendsAwatar: 'https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-happy-monster-square-avatar-funny-monster-mask-blue-design-t-shirt-sticker-print-97157979.jpg',
                 ownersMessage: 'Labas, kaip tu laikais?',
                 friendsMessage: 'Labas'
             },
             {
-                ownersAwatar: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
-                freindsAwatar: 'https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-happy-monster-square-avatar-funny-monster-mask-blue-design-t-shirt-sticker-print-97157979.jpg',
                 ownersMessage: 'Ką tu? Ką vakare?',
                 friendsMessage: 'Nieko visai'
             },
             {
-                ownersAwatar: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
-                friendsAwatar: 'https://thumbs.dreamstime.com/z/cartoon-monster-face-vector-halloween-happy-monster-square-avatar-funny-monster-mask-blue-design-t-shirt-sticker-print-97157979.jpg',
                 ownersMessage: 'Gal į virtuvę?',
-                friendsMessage: ''
+                friendsMessage: 'Tingiu'
             },
             
         ]
@@ -83,5 +76,15 @@ let state = {
         ]
     }
 };
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        message: postMessage,
+        id: 4,
+        likecount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    newRender(state)
+}
 
 export default state

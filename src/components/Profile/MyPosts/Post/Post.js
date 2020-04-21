@@ -6,7 +6,7 @@ const Post = (props) => {
         <div className={classes.Post}>
             <div className={classes.PostBlock}>
                 <div className={classes.Avatar}>
-                    <img src={props.image} alt="avatar" />
+                    <img src="https://ets2.lt/wp-content/uploads/2018/04/Funny-Avatar-Mr-Bean-Smiling-Photoshop-Image.jpg?x46304" alt="avatar" />
                 </div>
                 <p>
                     {props.message}

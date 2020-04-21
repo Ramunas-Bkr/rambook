@@ -13,8 +13,8 @@
 
 .avatar {
     display: inline-block;
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     overflow: hidden;
     margin: 10px;
@@ -30,7 +30,6 @@
 .owner p {
     display: inline-block;
     vertical-align: top;
-    margin-top: 35px;
     margin-left: 20px;
 }
 
@@ -50,7 +49,6 @@
 .friend p {
     float: right;
     vertical-align: top;
-    margin-top: 35px;
     margin-right: 20px;
 }
 

@@ -6,7 +6,6 @@ function MyPosts(props) {
 
     const postElement = props.state.posts.map( p => 
     <Post message={p.message}
-        image={p.image}
         likecount={p.likecount}
         key={p.id}
     /> )
@@ -14,8 +13,9 @@ function MyPosts(props) {
     let newPageElement = React.createRef()
 
     let addPost = () => {
-        let text = newPageElement.current.value
-        alert (text)
+        let text = newPageElement.current.value;
+        props.addPost(text);
+        newPageElement.current.value = '';
     }
 
     return (

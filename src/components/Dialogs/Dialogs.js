@@ -12,8 +12,6 @@ const Dialogs = (props) => {
 
     const messageItem = props.state.messages.map(
         m => <MessageItem
-                ownersAwatar={m.ownersAwatar}
-                friendsAwatar={m.friendsAwatar}
                 ownersMessage={m.ownersMessage}
                 friendsMessage={m.friendsMessage}
             />
