@@ -19,6 +19,7 @@ let state = {
                 likecount: 5
             }
         ],
+        newPostText: ''
     },
     dialogsPage: {
         dialogsItem: [
@@ -77,13 +78,19 @@ let state = {
     }
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
-        message: postMessage,
+        message: state.profilePage.newPostText,
         id: 4,
         likecount: 0
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    newRender(state)
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
     newRender(state)
 }
 

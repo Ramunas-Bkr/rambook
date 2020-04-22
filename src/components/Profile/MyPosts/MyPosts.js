@@ -13,16 +13,24 @@ function MyPosts(props) {
     let newPageElement = React.createRef()
 
     let addPost = () => {
+        props.addPost();
+    }
+
+    let onPostChange = () => {
         let text = newPageElement.current.value;
-        props.addPost(text);
-        newPageElement.current.value = '';
+        props.updateNewPostText(text);
     }
 
     return (
         <div className={classes.MyPosts}>
             <h3 className={classes.postHeader}> My posts </h3>
             <div>
-                <textarea ref={newPageElement} className={classes.postTextArea}></textarea>
+                <textarea 
+                    onChange={onPostChange}
+                    ref={newPageElement}
+                    value={props.state.newPostText} 
+                    className={classes.postTextArea}
+                />
             </div>
             <div>
                 <button onClick={addPost} className={classes.postButton}>Išsaugoti pranešimą</button>
