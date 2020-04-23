@@ -1,12 +1,35 @@
-import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { newRender } from './render';
-import state from './state/state'
+import store from './state/state'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 
 
-newRender(state);
+let newRender = (state) => {
+    ReactDOM.render(
+        <React.StrictMode>
+          <BrowserRouter>
+            <App 
+              state={state} 
+              addPost={store.addPost.bind(store)} 
+              updateNewPostText={store.updateNewPostText.bind(store)}  
+            />
+          </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+      
+}
+
+newRender(store.getState())
+
+store.subscribe(newRender);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
