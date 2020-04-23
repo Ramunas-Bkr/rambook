@@ -76,29 +76,53 @@ let store = {
             ]
         }
     },
+    _callSubscriber(){
+        
+    },
+
     getState() {
         return this._state;
-    },
-    _callSubscriber(){
-        console.log('State changed')
-    },
-    addPost() {
-        let newPost = {
-            message: this._state.profilePage.newPostText,
-            id: 4,
-            likecount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state)
-    },
-    updateNewPostText(newText){
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state)
     },
     subscribe(observer) {
         this._callSubscriber = observer
     },
+
+    // addPost() {
+    //     let newPost = {
+    //         message: this._state.profilePage.newPostText,
+    //         id: 4,
+    //         likecount: 0
+    //     };
+    //     this._state.profilePage.posts.push(newPost);
+    //     this._state.profilePage.newPostText = '';
+    //     this._callSubscriber(this._state)
+    // },
+    // updateNewPostText(newText){
+    //     this._state.profilePage.newPostText = newText;
+    //     this._callSubscriber(this._state)
+    // },
+
+    dispatch(action) {
+        switch (action.type) {
+            case 'ADD_POST':
+                let newPost = {
+                    message: this._state.profilePage.newPostText,
+                    id: 4,
+                    likecount: 0
+                };
+                this._state.profilePage.posts.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this._state)
+                break;
+            case 'UPDATE_NEW_POST_TEXT':
+                this._state.profilePage.newPostText = action.newText;
+                this._callSubscriber(this._state)
+                break;
+            default:
+                return null
+        }
+    }
+    
 };
 
 export default store;

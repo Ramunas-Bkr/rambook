@@ -13,12 +13,15 @@ function MyPosts(props) {
     let newPageElement = React.createRef()
 
     let addPost = () => {
-        props.addPost();
+        props.dispatch({ type: 'ADD_POST' });
     }
 
     let onPostChange = () => {
         let text = newPageElement.current.value;
-        props.updateNewPostText(text);
+        props.dispatch({
+            type: 'UPDATE_NEW_POST_TEXT',
+            newText: text
+        });
     }
 
     return (
