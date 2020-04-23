@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+
+
+
 let store = {
     _state: {
         profilePage: {
@@ -87,24 +92,9 @@ let store = {
         this._callSubscriber = observer
     },
 
-    // addPost() {
-    //     let newPost = {
-    //         message: this._state.profilePage.newPostText,
-    //         id: 4,
-    //         likecount: 0
-    //     };
-    //     this._state.profilePage.posts.push(newPost);
-    //     this._state.profilePage.newPostText = '';
-    //     this._callSubscriber(this._state)
-    // },
-    // updateNewPostText(newText){
-    //     this._state.profilePage.newPostText = newText;
-    //     this._callSubscriber(this._state)
-    // },
-
     dispatch(action) {
         switch (action.type) {
-            case 'ADD_POST':
+            case ADD_POST:
                 let newPost = {
                     message: this._state.profilePage.newPostText,
                     id: 4,
@@ -114,7 +104,7 @@ let store = {
                 this._state.profilePage.newPostText = '';
                 this._callSubscriber(this._state)
                 break;
-            case 'UPDATE_NEW_POST_TEXT':
+            case UPDATE_NEW_POST_TEXT:
                 this._state.profilePage.newPostText = action.newText;
                 this._callSubscriber(this._state)
                 break;
@@ -124,6 +114,13 @@ let store = {
     }
     
 };
+
+export const addPostCreator = () => ({ type: ADD_POST })
+
+export const onPostChangeCreator = (text) => 
+    ({ type: UPDATE_NEW_POST_TEXT,
+       newText: text })
+
 
 export default store;
 window.store = store;

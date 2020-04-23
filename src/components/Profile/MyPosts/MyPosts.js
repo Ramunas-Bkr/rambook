@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './MyPosts.module.css'
 import Post from './Post/Post'
+import { addPostCreator, onPostChangeCreator } from '../../../state/state'
 
 function MyPosts(props) {
 
@@ -13,15 +14,12 @@ function MyPosts(props) {
     let newPageElement = React.createRef()
 
     let addPost = () => {
-        props.dispatch({ type: 'ADD_POST' });
+        props.dispatch(addPostCreator());
     }
 
     let onPostChange = () => {
         let text = newPageElement.current.value;
-        props.dispatch({
-            type: 'UPDATE_NEW_POST_TEXT',
-            newText: text
-        });
+        props.dispatch(onPostChangeCreator(text));
     }
 
     return (
