@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD_POST';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT'
 
 
 
@@ -48,6 +50,7 @@ let store = {
                     avatar:'https://3.bp.blogspot.com/-Ky_vFN5_XSM/TmSEibyZVkI/AAAAAAAAAyY/TwBlb-cgouo/s1600/Funny+avatar+pic+angry+dog.jpg'
                 }
             ],
+            newOwnerMessage: '',
             messages: [
                 {
                     ownersMessage: 'Labas, kaip tu laikais?',
@@ -104,8 +107,23 @@ let store = {
                 this._state.profilePage.newPostText = '';
                 this._callSubscriber(this._state)
                 break;
+            case ADD_MESSAGE:
+                let newMessage = {
+                    ownersMessage: this._state.dialogsPage.newOwnerMessage,
+                    friendsMessage: 'Gerai'
+                };
+                this._state.dialogsPage.messages.push(newMessage);
+                this._state.dialogsPage.newOwnerMessage = '';
+                console.log(this._state.dialogsPage.newOwnerMessage);
+                
+                this._callSubscriber(this._state)
+                break;
             case UPDATE_NEW_POST_TEXT:
                 this._state.profilePage.newPostText = action.newText;
+                this._callSubscriber(this._state)
+                break;
+            case UPDATE_MESSAGE_TEXT:
+                this._state.dialogsPage.newOwnerMessage = action.newMessage;
                 this._callSubscriber(this._state)
                 break;
             default:
@@ -115,12 +133,18 @@ let store = {
     
 };
 
-export const addPostCreator = () => ({ type: ADD_POST })
+export const addPostCreator = () => ({ type: ADD_POST });
+
+export const addMessageCreator = () => ({ type: ADD_MESSAGE })
 
 export const onPostChangeCreator = (text) => 
     ({ type: UPDATE_NEW_POST_TEXT,
        newText: text })
 
+export const onMessageChangeCreator = (text) => ({
+    type: UPDATE_MESSAGE_TEXT,
+    newMessage: text
+})
 
 export default store;
 window.store = store;
