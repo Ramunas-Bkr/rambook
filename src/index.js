@@ -1,5 +1,5 @@
 import * as serviceWorker from './serviceWorker';
-import store from './state/state'
+import store from './redux/redux-store'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -23,7 +23,10 @@ let newRender = (state) => {
 
 newRender(store.getState())
 
-store.subscribe(newRender);
+store.subscribe(() => {
+  let state = store.getState();
+  newRender(state);
+});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

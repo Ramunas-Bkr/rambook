@@ -10,10 +10,12 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 function App(props) {
+  debugger;
   return (
       <div className={styles.App}>
         <Header />
-        <Navbar state={props.state.navbar}/>
+        <Navbar
+          state={props.state.navbar}/>
         <div className={styles.content}>
           <Route path='/profile' render={ () => 
             <Profile

@@ -1,6 +1,6 @@
 import profileReducer from "../redux/profileReducer";
 import dialogsReducer from "../redux/dialogsReducer";
-// import navbarReducer from "../redux/navbarReducer";
+import navbarReducer from "../redux/navbarReducer";
 
 let store = {
     _state: {
@@ -96,7 +96,7 @@ let store = {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
-        // this._state.navbar = navbarReducer(this._state.navbar, action)
+        this._state.navbar = navbarReducer(this._state.navbar, action)
 
         this._callSubscriber(this._state)
 
