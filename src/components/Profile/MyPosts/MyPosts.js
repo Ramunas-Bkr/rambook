@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './MyPosts.module.css'
 import Post from './Post/Post'
-import { addPostCreator, onPostChangeCreator } from '../../../state/state'
+import { addPostCreator, onPostChangeCreator } from '../../../redux/profileReducer'
 
 function MyPosts(props) {
 
@@ -10,15 +10,13 @@ function MyPosts(props) {
         likecount={p.likecount}
         key={p.id}
     /> )
-    
-    let newPageElement = React.createRef()
 
     let addPost = () => {
         props.dispatch(addPostCreator());
     }
 
-    let onPostChange = () => {
-        let text = newPageElement.current.value;
+    let onPostChange = (event) => {
+        let text = event.target.value;
         props.dispatch(onPostChangeCreator(text));
     }
 
@@ -28,7 +26,7 @@ function MyPosts(props) {
             <div>
                 <textarea 
                     onChange={onPostChange}
-                    ref={newPageElement}
+                    placeholder="Pranešimo laukas"
                     value={props.state.newPostText} 
                     className={classes.postTextArea}
                 />

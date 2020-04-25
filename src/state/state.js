@@ -1,9 +1,6 @@
-const ADD_POST = 'ADD_POST';
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT'
-
-
+import profileReducer from "../redux/profileReducer";
+import dialogsReducer from "../redux/dialogsReducer";
+// import navbarReducer from "../redux/navbarReducer";
 
 let store = {
     _state: {
@@ -96,55 +93,17 @@ let store = {
     },
 
     dispatch(action) {
-        switch (action.type) {
-            case ADD_POST:
-                let newPost = {
-                    message: this._state.profilePage.newPostText,
-                    id: 4,
-                    likecount: 0
-                };
-                this._state.profilePage.posts.push(newPost);
-                this._state.profilePage.newPostText = '';
-                this._callSubscriber(this._state)
-                break;
-            case ADD_MESSAGE:
-                let newMessage = {
-                    ownersMessage: this._state.dialogsPage.newOwnerMessage,
-                    friendsMessage: 'Gerai'
-                };
-                this._state.dialogsPage.messages.push(newMessage);
-                this._state.dialogsPage.newOwnerMessage = '';
-                console.log(this._state.dialogsPage.newOwnerMessage);
-                
-                this._callSubscriber(this._state)
-                break;
-            case UPDATE_NEW_POST_TEXT:
-                this._state.profilePage.newPostText = action.newText;
-                this._callSubscriber(this._state)
-                break;
-            case UPDATE_MESSAGE_TEXT:
-                this._state.dialogsPage.newOwnerMessage = action.newMessage;
-                this._callSubscriber(this._state)
-                break;
-            default:
-                return null
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        // this._state.navbar = navbarReducer(this._state.navbar, action)
+
+        this._callSubscriber(this._state)
+
     }
     
 };
 
-export const addPostCreator = () => ({ type: ADD_POST });
-
-export const addMessageCreator = () => ({ type: ADD_MESSAGE })
-
-export const onPostChangeCreator = (text) => 
-    ({ type: UPDATE_NEW_POST_TEXT,
-       newText: text })
-
-export const onMessageChangeCreator = (text) => ({
-    type: UPDATE_MESSAGE_TEXT,
-    newMessage: text
-})
 
 export default store;
 window.store = store;

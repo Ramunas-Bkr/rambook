@@ -1,18 +1,15 @@
 import React from 'react'
 import classes from './MessageSender.module.css'
-import { addMessageCreator, onMessageChangeCreator } from '../../../state/state'
+import { addMessageCreator, onMessageChangeCreator } from '../../../redux/dialogsReducer'
 
 const MessageSender = (props) => {
-
-
-    let newMessageElement = React.createRef();
 
     let addMessage = () => {
         props.dispatch(addMessageCreator())
     }
 
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value;
+    let onMessageChange = (event) => {
+        let text = event.target.value;
         props.dispatch(onMessageChangeCreator(text))
     }
 
@@ -21,7 +18,7 @@ const MessageSender = (props) => {
             <div>
                 <textarea 
                     onChange={onMessageChange}
-                    ref={newMessageElement}
+                    placeholder="Įveskite savo pranešimą čia"
                     value={props.state.newOwnerMessage} 
                     className={classes.postTextArea} 
                     
