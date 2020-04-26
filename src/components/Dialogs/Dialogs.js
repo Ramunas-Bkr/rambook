@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './MessageItem/MessageItem'
-import MessageSender from './MessageSender/MessageSender'
+import MessageSenderContainer from './MessageSender/MessageSenderContainer'
 
 const Dialogs = (props) => {
 
@@ -24,9 +24,9 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 {messageItem}
-                <MessageSender 
-                state={props.state}
-                dispatch={props.dispatch} />
+                <MessageSenderContainer
+                store={props.store}
+                />
             </div>
             
         </div>

@@ -1,23 +1,21 @@
 import React from 'react'
 import classes from './MyPosts.module.css'
 import Post from './Post/Post'
-import { addPostCreator, onPostChangeCreator } from '../../../redux/profileReducer'
 
 function MyPosts(props) {
 
-    const postElement = props.state.posts.map( p => 
+    const postElement = props.posts.map( p => 
     <Post message={p.message}
         likecount={p.likecount}
-        key={p.id}
     /> )
 
-    let addPost = () => {
-        props.dispatch(addPostCreator());
+    let onAddPost = () => {
+        props.addPost();
     }
 
     let onPostChange = (event) => {
         let text = event.target.value;
-        props.dispatch(onPostChangeCreator(text));
+        props.updateNewPostText(text);
     }
 
     return (
@@ -27,12 +25,12 @@ function MyPosts(props) {
                 <textarea 
                     onChange={onPostChange}
                     placeholder="Pranešimo laukas"
-                    value={props.state.newPostText} 
+                    value={props.newPostText} 
                     className={classes.postTextArea}
                 />
             </div>
             <div>
-                <button onClick={addPost} className={classes.postButton}>Išsaugoti pranešimą</button>
+                <button onClick={onAddPost} className={classes.postButton}>Išsaugoti pranešimą</button>
             </div>
             {postElement}
         </div>
