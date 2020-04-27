@@ -13,8 +13,8 @@ function App(props) {
   return (
       <div className={styles.App}>
         <Header />
-        <Navbar
-          state={props.state.navbar}/>
+        {/* <Navbar
+          state={props.state.navbar}/> */}
         <div className={styles.content}>
           <Route
             path='/profile' 
