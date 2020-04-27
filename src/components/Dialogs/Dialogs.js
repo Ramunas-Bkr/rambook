@@ -2,15 +2,18 @@ import React from 'react'
 import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './MessageItem/MessageItem'
-import MessageSenderContainer from './MessageSender/MessageSenderContainer'
+import MessageSender from './MessageSender/MessageSenderContainer'
 
-const Dialogs = (props) => {
-
-    const item = props.state.dialogsItem.map(
-        d => <DialogItem name={d.name} id={d.id} avatar={d.avatar} />
+const Dialogs = (props) => 
+{
+    const item = props.dialogsItem.map( d =>
+        <DialogItem
+            name={d.name}
+            id={d.id}
+            avatar={d.avatar} />
     )
 
-    const messageItem = props.state.messages.map(
+    const messageItem = props.messages.map(
         m => <MessageItem
                 ownersMessage={m.ownersMessage}
                 friendsMessage={m.friendsMessage}
@@ -24,13 +27,16 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 {messageItem}
-                <MessageSenderContainer
-                store={props.store}
+                <MessageSender
+                newOwnerMessage={props.newOwnerMessage}
+                updateMessageBody={props.updateMessageBody}
+                sendMessage={props.sendMessage}
                 />
             </div>
             
         </div>
     )
+
 }
 
 export default Dialogs

@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './MessageItem.module.css'
 
 const MessageItem = (props) => {
+    debugger
     return (
         <div className={classes.message}>
             <div className={classes.owner}>

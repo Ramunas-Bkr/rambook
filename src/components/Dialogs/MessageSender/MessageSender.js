@@ -7,7 +7,8 @@ const MessageSender = (props) => {
         props.sendMessage()
     }
 
-    let onMessageChange = (text) => {
+    let onMessageChange = (event) => {
+        let text = event.target.value
         props.updateMessageBody(text)
     }
     
@@ -17,7 +18,7 @@ const MessageSender = (props) => {
                 <textarea 
                     onChange={onMessageChange}
                     placeholder="Įveskite savo pranešimą čia"
-                    value={props.dialogsPage.newOwnerMessage} 
+                    value={props.newOwnerMessage} 
                     className={classes.postTextArea} 
                     
                 />
