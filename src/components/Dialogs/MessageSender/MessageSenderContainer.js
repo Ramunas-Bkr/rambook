@@ -1,27 +1,26 @@
-// import React from 'react'
-// import { addMessageCreator, onMessageChangeCreator } from '../../../redux/dialogsReducer'
-// import MessageSender from './MessageSender'
+import { addMessageCreator, onMessageChangeCreator } from '../../../redux/dialogsReducer'
+import MessageSender from './MessageSender'
+import { connect } from 'react-redux';
 
-// const MessageSenderContainer = (props) => {
+const mapStateToProps = (state) => {
+    return {
+        dialogsItem: state.dialogsPage.dialogsItem,
+        newOwnerMessage: state.dialogsPage.newOwnerMessage,
+        messages: state.dialogsPage.messages
+    }
+}
 
-//     let state = props.store.getState().dialogsPage;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateMessageBody: () => {
+            dispatch(onMessageChangeCreator())
+        },
+        sendMessage: (text) => {
+            dispatch(addMessageCreator(text))
+        }
+    }
+}
 
-//     let addMessage = () => {
-//         props.store.dispatch(addMessageCreator())
-//     }
+const MessageSenderContainer = connect (mapStateToProps, mapDispatchToProps)(MessageSender)
 
-//     let onMessageChange = (event) => {
-//         let text = event.target.value
-//         props.store.dispatch(onMessageChangeCreator(text))
-//     }
-
-//     return (
-//         <MessageSender
-//             updateMessageBody={onMessageChange}
-//             sendMessage={addMessage}
-//             dialogsPage={state}
-//         />
-//     )
-// }
-
-// export default MessageSenderContainer
+export default MessageSenderContainer
