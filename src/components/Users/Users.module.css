@@ -1,0 +1,75 @@
+.Users {
+    width: 900px;
+    display: grid;
+    grid-template-areas:
+    "left right";
+    grid-template-columns: 120px 1fr;
+}
+
+.left {
+    grid-area: left;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.avatar {
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 15px;
+
+
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+}
+
+.left button {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgb(245, 229, 4);
+    border: none;
+    margin-top: 10px;
+}
+
+.right {
+    grid-area: right;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    margin: 30px 0;
+    display: grid;
+    grid-template-areas:
+    "nickname city"
+    "name country"
+    "title title";
+    grid-template-columns: 600px 1fr;
+    color: #fff;
+}
+
+.nickname {
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.city, .country {
+    margin-right: 15px;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.name {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.status {
+    margin: 15px;
+    font-style: italic;
+}
