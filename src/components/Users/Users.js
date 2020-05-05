@@ -5,14 +5,13 @@ import profileImage from '../../assets/images/empty_avatar.jpg'
 
 class Users extends Component {
 
-    constructor (props) {
-        super (props);
+    componentDidMount() {
         Axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    this.props.setUsers(response.data.items);
-                });
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            });
     }
- 
+
     render() {
         return (
             <div>
