@@ -1,5 +1,28 @@
-.Users {
+.Userpage {
+    display: inline-block;
     width: 900px;
+}
+
+
+.pages {
+    margin: 15px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.pages span {
+    padding-right: 3px;
+    opacity: .7;
+}
+
+.active {
+    font-size: 16px;
+    font-weight: bold;
+    opacity: initial;
+}
+
+.Users {
     display: grid;
     grid-template-areas:
     "left right";

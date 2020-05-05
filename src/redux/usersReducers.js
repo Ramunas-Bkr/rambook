@@ -1,62 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURENT_PAGE = 'SET_CURENT_PAGE';
+const TOTAL_USERS_COUNT = 'TOTAL_USERS_COUNT'
 
 let initialState = {
-    users: [
-        // {
-        //     id: 1,
-        //     isFrend: true,
-        //     profilePicture: 'https://avatarfiles.alphacoders.com/547/54799.png',
-        //     nickName: 'Ramas',
-        //     firstName: 'Ramūnas',
-        //     lastName: 'Bekeris',
-        //     status: 'Mokausi React. Geras dalykas',
-        //     location: {
-        //         city: 'Vilnius',
-        //         country: 'Lithuania'
-        //     }
-        // },
-        // {
-        //     id: 2,
-        //     isFrend: false,
-        //     profilePicture: 'https://cdn3.iconfinder.com/data/icons/cool-avatars-2/190/00-02-2-512.png',
-        //     nickName: 'Elzauskas',
-        //     firstName: 'Elzė',
-        //     lastName: 'Bekerytė',
-        //     status: 'Mokausi daugybos lentelės',
-        //     location: {
-        //         city: 'Vilnius',
-        //         country: 'Lithuania'
-        //     }
-        // },
-        // {
-        //     id: 3,
-        //     isFrend: true,
-        //     profilePicture: 'https://cdn1.vectorstock.com/i/1000x1000/80/40/cute-and-funny-monster-avatar-animated-cartoon-vector-15028040.jpg',
-        //     nickName: 'Zivile S.',
-        //     firstName: 'Živilė',
-        //     lastName: 'Šulskaitė',
-        //     status: 'Angaras turi kilti',
-        //     location: {
-        //         city: 'Vilnius',
-        //         country: 'Lithuania'
-        //     }
-        // },
-        // {
-        //     id: 4,
-        //     isFrend: true,
-        //     profilePicture: 'https://www.bestfunnies.com/wp-content/uploads/2015/05/Funny-Dog-faces-27.jpg',
-        //     nickName: 'Janis Oz',
-        //     firstName: 'Janis',
-        //     lastName: 'Ozuolnis',
-        //     status: 'Laiks ne gaidis, banks pagaidis',
-        //     location: {
-        //         city: 'Ventspils',
-        //         country: 'Latvia'
-        //     }
-        // },
-    ]
+    users: [],
+    pageSize: 70,
+    totalUsersCount: 0,
+    curentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -67,7 +19,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return {...u, isFrend: true}
+                        return { ...u, isFrend: true }
                     }
                     return u;
                 })
@@ -77,15 +29,25 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => {
                     if (u.id === action.userId) {
-                        return {...u, isFrend: false}
+                        return { ...u, isFrend: false }
                     }
                     return u;
                 })
             };
         case SET_USERS:
             return {
-                ...state, 
-                users: [...state.users, ...action.users]
+                ...state,
+                users: action.users
+            };
+        case TOTAL_USERS_COUNT:
+            return {
+                ...state,
+                totalUsersCount: action.totalUsersCount
+            };
+        case SET_CURENT_PAGE:
+            return {
+                ...state,
+                curentPage: action.curentPage
             }
         default:
             return state
@@ -95,5 +57,8 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({ type: FOLLOW, userId });
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsersAC = (users) => ({ type: SET_USERS, users });
+export const setTotalUsersCountAC = (count) => ({ type: TOTAL_USERS_COUNT, totalUsersCount: count });
+export const setCurentPageAC = (curentPage) => ({ type: SET_CURENT_PAGE, curentPage });
+
 
 export default usersReducer
