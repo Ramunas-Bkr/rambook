@@ -5,15 +5,19 @@
 
 
 .pages {
+    display: flex;
     margin: 15px;
     color: #fff;
     cursor: pointer;
     font-size: 10px;
+    width: 900px;
 }
 
 .pages span {
+    display: flex;
     padding-right: 3px;
     opacity: .7;
+    width: 900px;
 }
 
 .active {
