@@ -78,11 +78,16 @@
     color: #fff;
 }
 
+.right a {
+    text-decoration: none !important;
+}
+
 .nickname {
     margin-left: 15px;
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
+    color: #fff;
 }
 
 .city, .country {
