@@ -19,7 +19,7 @@ function App(props) {
           store={props.store}/>
         <div className={styles.content}>
           <Route
-            path='/profile' 
+            path='/profile/:userId?' 
             render={ () => <ProfileContainer
               store={props.store} />}
           />

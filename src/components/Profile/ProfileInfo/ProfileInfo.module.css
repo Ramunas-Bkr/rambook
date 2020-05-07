@@ -6,3 +6,53 @@
       padding: 0 20px;
       padding-top: 10px;
   }
+
+  .profilePicture {
+      display: inline-block;
+      width: 35%;
+  }
+
+  .profilePicture img {
+      width: auto;
+  }
+
+  .profileInfo {
+    display: inline-block;
+    width: 64%;
+    vertical-align: top;
+    color: #fff;
+  }
+
+  .profileInfo h2 {
+      font-size: 40px;
+      margin-top: -5px;
+  }
+
+  .profileInfo p {
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  .profileInfo h5 {
+      margin-top: 60px;
+      font-size: 20px;
+      font-style: italic;
+      margin-top: -10px;
+}
+
+  .profileInfo h5::before {
+    display: inline-block;
+    content: "";
+    border-top: .1px solid #fff;
+    width: 100%;
+    transform: translateY(-1rem);
+  }
+
+  .icons {
+      font-size: 30px;
+      margin-top: -15px;
+  }
+
+  .fa-times-circle {
+      color: red;
+  }
