@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './App.module.css';
-import Header from './components/Header/Header';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import { Route } from 'react-router-dom';
 import News from './components/News/News';
@@ -9,12 +8,13 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 function App(props) {
   return (
       <div className={styles.App}>
-        <Header />
+        <HeaderContainer />
         <NavbarContainer
           store={props.store}/>
         <div className={styles.content}>
