@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Users.module.css'
 import profileImage from '../../assets/images/empty_avatar.jpg'
 import { NavLink } from 'react-router-dom';
+import Axios from 'axios';
 
 const Users = (props) => {
 
@@ -32,8 +33,30 @@ const Users = (props) => {
                                 </NavLink>
                             </div>
                             {u.isFrend
-                                ? <button onClick={() => props.unfollow(u.id)} >Unfollow</button>
-                                : <button onClick={() => props.follow(u.id)}>Follow</button>
+                                ? <button onClick={() => {
+                                    Axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "9bdf44fd-2ece-425b-8078-fce4c541d9df"
+                                        }
+                                    }).then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.unfollow(u.id)}
+                                        }
+                                    )} 
+                                } >Unfollow</button>
+                                : <button onClick={() => {
+                                    Axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "9bdf44fd-2ece-425b-8078-fce4c541d9df"
+                                        }
+                                    }).then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.follow(u.id)}
+                                        }
+                                    )} 
+                                } >Follow</button>
                             }
                         </div>
                         <div className={classes.right}>
