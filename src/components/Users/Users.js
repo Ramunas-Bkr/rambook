@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './Users.module.css'
 import profileImage from '../../assets/images/empty_avatar.jpg'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 const Users = (props) => {
 
@@ -10,6 +10,10 @@ const Users = (props) => {
 
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
+    }
+
+    if (!props.isAuth) {
+        return <Redirect to={"/login"} />
     }
 
     return (
