@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './Users.module.css'
 import profileImage from '../../assets/images/empty_avatar.jpg'
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
 
@@ -12,15 +12,12 @@ const Users = (props) => {
         pages.push(i)
     }
 
-    if (!props.isAuth) {
-        return <Redirect to={"/login"} />
-    }
-
     return (
         <div className={classes.Userpage}>
             <div className={classes.pages}>
                 {pages.map(p => {
-                    return <span className={props.curentPage === p && classes.active}
+                 
+                    return <span className={props.currentPage === p && classes.active}
                         onClick={() => { props.onPageChange(p) }}>
                         {p}
                     </span>

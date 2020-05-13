@@ -12,7 +12,7 @@ let initialState = {
     users: [],
     pageSize: 65,
     totalUsersCount: 0,
-    curentPage: 1,
+    currentPage: 1,
     isFetching: false,
     followingInProgress: []
 };
@@ -53,7 +53,7 @@ const usersReducer = (state = initialState, action) => {
         case SET_CURENT_PAGE:
             return {
                 ...state,
-                curentPage: action.curentPage
+                currentPage: action.currentPage
             };
         case TOGGLE_IS_FETCHING:
             return {
@@ -76,14 +76,14 @@ export const followSuccess = (userId) => ({ type: FOLLOW, userId });
 export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setTotalUsersCount = (count) => ({ type: TOTAL_USERS_COUNT, totalUsersCount: count });
-export const setCurentPage = (curentPage) => ({ type: SET_CURENT_PAGE, curentPage });
+export const setcurrentPage = (currentPage) => ({ type: SET_CURENT_PAGE, currentPage });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export const toggleIsFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
-export const getUsers = (curentPage, pageSize) => {
+export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        usersAPI.getUsers(curentPage, pageSize).then(data => {
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount))
@@ -93,7 +93,7 @@ export const getUsers = (curentPage, pageSize) => {
 
 export const follow = (userId) => {
     return (dispatch) => {
-        dispatch (toggleIsFollowingProgress(true, userId))
+        dispatch(toggleIsFollowingProgress(true, userId))
         usersAPI.getFollow(userId).then(data => {
             if (data.resultCode === 0) {
                 dispatch(followSuccess(userId))
