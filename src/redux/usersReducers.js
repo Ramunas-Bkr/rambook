@@ -3,7 +3,7 @@ import { usersAPI } from "../api/api";
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
-const SET_CURENT_PAGE = 'SET_CURENT_PAGE';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TOTAL_USERS_COUNT = 'TOTAL_USERS_COUNT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
@@ -16,7 +16,6 @@ let initialState = {
     isFetching: false,
     followingInProgress: []
 };
-
 const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
@@ -50,7 +49,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 totalUsersCount: action.totalUsersCount
             };
-        case SET_CURENT_PAGE:
+        case SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.currentPage
@@ -71,12 +70,11 @@ const usersReducer = (state = initialState, action) => {
             return state
     };
 }
-
 export const followSuccess = (userId) => ({ type: FOLLOW, userId });
 export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setTotalUsersCount = (count) => ({ type: TOTAL_USERS_COUNT, totalUsersCount: count });
-export const setcurrentPage = (currentPage) => ({ type: SET_CURENT_PAGE, currentPage });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export const toggleIsFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
 

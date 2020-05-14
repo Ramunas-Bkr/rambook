@@ -3,12 +3,13 @@ import Users from './Users';
 import { connect } from "react-redux"
 import {
   follow, unfollow,
-  setcurrentPage,
+  setCurrentPage,
   toggleIsFollowingProgress,
   getUsers
 } from "../../redux/usersReducers";
 import Preloader from '../../hoc/Preloader/Preloader';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class UsersContainer extends Component {
 
@@ -21,7 +22,7 @@ class UsersContainer extends Component {
   }
 
   render() {
-
+debugger
     return <>
       {this.props.isFetching
         ? <Preloader />
@@ -51,12 +52,7 @@ const mapStateToProps = (state) => {
   }
 };
 
-let withRedirect = withAuthRedirect(UsersContainer)
-
-export default connect(mapStateToProps,
-  {
-    follow, unfollow,
-    setcurrentPage, 
-    toggleIsFollowingProgress, getUsers
-  })
-  (withRedirect)
+export default compose(
+  connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleIsFollowingProgress, getUsers}),
+  withAuthRedirect
+)(UsersContainer)
