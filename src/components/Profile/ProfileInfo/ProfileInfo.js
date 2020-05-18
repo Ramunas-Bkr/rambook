@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../../hoc/Preloader/Preloader'
+import ProfileStatus from './ProfileStatus/ProfileStatus'
 
 const ProfileInfo = (props) => {
     
@@ -29,6 +30,7 @@ const ProfileInfo = (props) => {
                     <p>{props.profile.lookingForAJobDescription}</p>
                 </div>
             </div>
+            <ProfileStatus status="Hello my Friends!"/>
         </div>
     )}
 
