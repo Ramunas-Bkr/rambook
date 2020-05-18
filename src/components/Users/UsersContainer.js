@@ -22,7 +22,6 @@ class UsersContainer extends Component {
   }
 
   render() {
-debugger
     return <>
       {this.props.isFetching
         ? <Preloader />

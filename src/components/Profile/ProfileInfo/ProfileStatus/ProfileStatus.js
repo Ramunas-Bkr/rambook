@@ -4,10 +4,11 @@ import classes from './ProfileStatus.module.css'
 class ProfileStatus extends Component {
 
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
-    activateMode() {
+    activateMode = () => {
         this.setState({
             editMode: true
         })
@@ -16,6 +17,13 @@ class ProfileStatus extends Component {
     deactivateMode() {
         this.setState({
             editMode: false
+        });
+        this.props.updateStatus(this.state.status)
+    }
+
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
         })
     }
 
@@ -25,11 +33,11 @@ class ProfileStatus extends Component {
                 {this.state.editMode
                     ?
                     <div>
-                        <input autoFocus={true} onBlur={this.deactivateMode.bind(this)} value={this.props.status} />
+                        <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateMode.bind(this)} value={this.state.status} />
                     </div>
                     :
                     <div>
-                        <span onDoubleClick={this.activateMode.bind(this)}>{this.props.status}</span>
+                        <span onDoubleClick={this.activateMode}>{this.props.status}</span>
                     </div>
                 }
             </div>
