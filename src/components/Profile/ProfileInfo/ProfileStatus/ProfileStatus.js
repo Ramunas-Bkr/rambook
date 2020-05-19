@@ -14,7 +14,7 @@ class ProfileStatus extends Component {
         })
     }
 
-    deactivateMode() {
+    deactivateMode = () => {
         this.setState({
             editMode: false
         });
@@ -27,13 +27,21 @@ class ProfileStatus extends Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
     render() {
         return (
             <div className={classes.ProfileStatus}>
                 {this.state.editMode
                     ?
-                    <div>
-                        <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateMode.bind(this)} value={this.state.status} />
+                    <div>   
+                        <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateMode} value={this.state.status} />
                     </div>
                     :
                     <div>
