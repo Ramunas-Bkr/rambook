@@ -1,37 +1,28 @@
 import React from 'react'
 import classes from './MessageSender.module.css'
+import { Field, reduxForm } from 'redux-form'
 
 const MessageSender = (props) => {
 
-    let addMessage = () => {
-        props.sendMessage()
-    }
-
-    let onMessageChange = (event) => {
-        let text = event.target.value
-        props.updateMessageBody(text)
-    }
-    
     return (
-        <div>
+        <form onSubmit={props.handleSubmit}>
             <div>
-                <textarea 
-                    onChange={onMessageChange}
-                    placeholder="Įveskite savo pranešimą čia"
-                    value={props.newOwnerMessage} 
-                    className={classes.postTextArea} 
-                    
-                />
+                <Field 
+                    component="textarea" 
+                    name="newOwnerMessage" 
+                    placeholder="Įveskite savo pranešimą čia" 
+                    className={classes.postTextArea}/>
             </div>
             <div>
-                <button 
-                    onClick={addMessage} 
-                    className={classes.postButton}>
-                        Išsiųsti pranešimą
-                </button>
+                <button className={classes.postButton}> Išsiųsti pranešimą </button>
             </div>
-        </div>
+        </form>
     )
 }
 
-export default MessageSender
+const MessageSenderRedux = reduxForm({
+    form: "dialogAddMessageForm"
+})(MessageSender)
+
+
+export default MessageSenderRedux

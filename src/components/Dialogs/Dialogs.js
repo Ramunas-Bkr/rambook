@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './MessageItem/MessageItem'
-import MessageSenderContainer from './MessageSender/MessageSenderContainer'
+import MessageSender from './MessageSender/MessageSender'
 import { Redirect } from 'react-router-dom'
 
 const Dialogs = (props) => 
@@ -25,6 +25,10 @@ const Dialogs = (props) =>
         return <Redirect to={"/login"} />
     }
 
+    let addNewMessage = (value) => {
+        props.sendMessage(value.newOwnerMessage)
+    }
+
     return (
         <div className={classes.Dialogs}>
             <div className={classes.users}>
@@ -32,7 +36,7 @@ const Dialogs = (props) =>
             </div>
             <div className={classes.messages}>
                 {messageItem}
-                <MessageSenderContainer />
+                <MessageSender onSubmit={addNewMessage} />
             </div>
             
         </div>

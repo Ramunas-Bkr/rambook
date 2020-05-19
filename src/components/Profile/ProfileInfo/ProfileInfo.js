@@ -24,8 +24,8 @@ const ProfileInfo = (props) => {
                     <h5>Looking for a Job?</h5>
                     <div className={classes.icons}>
                     {props.profile.lookingForAJob 
-                        ? <i class="fab fa-react"></i>
-                        : <i class="fas fa-times-circle"></i>}
+                        ? <i className="fab fa-react"></i>
+                        : <i className="fas fa-times-circle"></i>}
                     </div>
                     <p>{props.profile.lookingForAJobDescription}</p>
                 </div>

@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT'
 
 let initialState = {
     dialogsItem: [
@@ -24,7 +23,6 @@ let initialState = {
             avatar: 'https://3.bp.blogspot.com/-Ky_vFN5_XSM/TmSEibyZVkI/AAAAAAAAAyY/TwBlb-cgouo/s1600/Funny+avatar+pic+angry+dog.jpg'
         }
     ],
-    newOwnerMessage: '',
     messages: [
         {
             id: 1,
@@ -56,27 +54,15 @@ const dialogsReducer = (state = initialState, action) => {
                 messages: [...state.messages,
                 {
                     id: 4,
-                    ownersMessage: state.newOwnerMessage,
+                    ownersMessage: action.newOwnerMessage,
                     friendsMessage: 'Gerai'
                 }],
-                newOwnerMessage: ''
             }
-
-        case UPDATE_MESSAGE_TEXT:
-            return {
-                ...state,
-                newOwnerMessage: action.newMessage
-            };
         default:
             return state
     }
 }
 
-export const addMessageCreator = () => ({ type: ADD_MESSAGE })
-
-export const onMessageChangeCreator = (text) => ({
-    type: UPDATE_MESSAGE_TEXT,
-    newMessage: text
-})
+export const addMessageCreator = (newOwnerMessage) => ({ type: ADD_MESSAGE, newOwnerMessage })
 
 export default dialogsReducer
