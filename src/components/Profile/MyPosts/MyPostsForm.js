@@ -7,14 +7,14 @@ const MyPostsForm = (props) => {
         <form onSubmit={props.handleSubmit}>
             <div>
                 <Field
-                    component="textarea" 
-                    placeholder={"Pranešimo laukas"}
-                    value={props.newPostText} 
+                    component="textarea"
+                    name="addMyPost"
+                    placeholder="Pranešimo laukas"
                     className={classes.postTextArea}
                 />
             </div>
             <div>
-                <button onClick={props.onAddPost} className={classes.postButton}>Išsaugoti pranešimą</button>
+                <button className={classes.postButton}>Išsaugoti pranešimą</button>
             </div>
         </form>
     )

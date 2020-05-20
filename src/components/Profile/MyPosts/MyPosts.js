@@ -10,22 +10,15 @@ function MyPosts(props) {
         likecount={p.likecount}
     /> )
 
-    let onAddPost = () => {
-        props.addPost();
-    }
-
-    let onPostChange = (formData) => {
-        let text = formData.target.value;
-        props.updateNewPostText(text);
+    let addPost = (value) => {
+        props.addPost(value.addMyPost);
     }
 
     return (
         <div className={classes.MyPosts}>
             <h3 className={classes.postHeader}> My posts </h3>
             <PostReduxForm 
-                newPostText={props.newPostText}
-                onSubmit={onPostChange}
-                onAddPost={onAddPost}/>
+                onSubmit={addPost}/>
             {postElement}
         </div>
     )
