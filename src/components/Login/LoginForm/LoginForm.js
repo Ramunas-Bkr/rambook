@@ -6,28 +6,31 @@ import { required } from '../../../utils/validators/validators'
 
 const LoginForm = (props) => {
     return (
-        <form className={classes.LoginFom} onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <div>
-                <Field 
+                <Field
                     name="email"
                     placeholder="Email"
                     component={Input}
                     validate={[required]} />
             </div>
             <div>
-                <Field 
+                <Field
                     name="password"
                     placeholder="Password"
-                    type="password" 
+                    type="password"
                     component={Input}
-                    validate={[required]}  />
+                    validate={[required]} />
             </div>
             <div>
-                <Field 
-                    name="rememberMe" 
-                    type="checkbox" 
+                <Field
+                    name="rememberMe"
+                    type="checkbox"
                     component={Input} /> Remember me
             </div>
+            {props.error && <div className={classes.summaryError}>
+                {props.error}
+            </div>}
             <div>
                 <button> Login </button>
             </div>
