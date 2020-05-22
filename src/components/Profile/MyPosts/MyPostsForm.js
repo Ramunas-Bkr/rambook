@@ -3,6 +3,7 @@ import classes from './MyPosts.module.css'
 import { reduxForm, Field } from 'redux-form'
 import { required, maxLengthCreator } from '../../../utils/validators/validators'
 import { Textarea } from '../../common/FormsControls/FormsControls'
+import Button from '../../../utils/Button/Button'
 
 const maxLenght10 = maxLengthCreator(10)
 
@@ -16,10 +17,12 @@ const MyPostsForm = (props) => {
                     name="addMyPost"
                     placeholder="Pranešimo laukas"
                     validate={[required, maxLenght10]}
+                    className={classes.textArea}
                 />
             </div>
             <div>
-                <button className={classes.postButton}>Išsaugoti pranešimą</button>
+                <Button name="Išsaugoti pranešimą" />
+                {/* <button className={classes.postButton}>Išsaugoti pranešimą</button> */}
             </div>
         </form>
     )
