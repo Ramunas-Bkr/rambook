@@ -5,7 +5,7 @@ import { required, maxLengthCreator } from '../../../utils/validators/validators
 import { Textarea } from '../../common/FormsControls/FormsControls'
 import Button from '../../../utils/Button/Button'
 
-const maxLenght10 = maxLengthCreator(10)
+const maxLenght50 = maxLengthCreator(50)
 
 const MyPostsForm = (props) => {
 
@@ -16,7 +16,7 @@ const MyPostsForm = (props) => {
                     component={Textarea}
                     name="addMyPost"
                     placeholder="Pranešimo laukas"
-                    validate={[required, maxLenght10]}
+                    validate={[required, maxLenght50]}
                     className={classes.textArea}
                 />
             </div>
