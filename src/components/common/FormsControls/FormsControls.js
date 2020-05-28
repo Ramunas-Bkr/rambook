@@ -13,7 +13,6 @@ const FormsControls = ({input, meta, child, ...props}) => {
     )
 }
 
-
 export const Textarea = (props) => {
     const {input, meta, children, ...Restprops} = props;
     return <FormsControls {...props}><textarea {...input} {...Restprops} /> </FormsControls>
@@ -24,3 +23,6 @@ export const Input = (props) => {
     return <FormsControls {...props}><input {...input} {...Restprops} /> </FormsControls>
 }
 
+// export const createField = (name, placeholder, component, validators) => {
+//     return  <div> <Field name={name} placeholder={placeholder} component={component} validate={validators} /> </div>
+// }
