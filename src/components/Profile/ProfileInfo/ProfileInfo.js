@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/Preloader/Preloader'
 import ProfileStatusHook from './ProfileStatus/ProfileStatusHook'
+import profileImage from '../../../assets/images/empty_avatar.jpg'
 
 const ProfileInfo = (props) => {
     
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={classes.description}>
                 <div className={classes.profilePicture}>
-                    <img src={props.profile.photos.large} alt="profile" />
+                    <img src={props.profile.photos.large != null ? props.profile.photos.large : profileImage} alt="profile" />
                 </div>
                 <div className={classes.profileInfo}>
                     <h2>{props.profile.fullName}</h2>
