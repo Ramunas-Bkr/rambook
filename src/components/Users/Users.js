@@ -9,7 +9,7 @@ const Users = (props) => {
         <div className={classes.Userpage}>
             <Paginator currentPage={props.currentPage} onPageChange={props.onPageChange}
                 totalItemsCount={props.totalUsersCount} pageSize={props.pageSize}
-                portionSize={10} />
+                portionSize={25} />
             {
                 props.users.map(u =>
                     <User key={u.id} user={u} followingInProgress={props.followingInProgress}

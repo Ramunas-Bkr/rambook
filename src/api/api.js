@@ -9,9 +9,8 @@ const instance = Axios.create({
 });
 
 export const usersAPI = {
-  requestUsers(pageNumber = 1, pageSize = 20) {
-    return instance
-      .get(`users?page=${pageNumber}&count=${pageSize}`)
+  getUsers(currentPage = 1, pageSize = 20) {
+    return instance.get(`users?page=${currentPage}&count=${pageSize}`)
       .then((response) => {
         return response.data;
       });
