@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import styles from './App.module.css';
 import HeaderContainer from './components/Header/HeaderContainer';

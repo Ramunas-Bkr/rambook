@@ -28,9 +28,7 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChange, portionS
                 .map((p) => {
                 return <span className={currentPage === p && classes.active}
                              key={p}
-                             onClick={() => {
-                                 onPageChange(p);
-                             }}>{p}</span>
+                             onClick={() => {onPageChange(p)}}>{p}</span>
             })}
         { portionCount > portionNumber &&
             <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
