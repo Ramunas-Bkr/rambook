@@ -8,10 +8,14 @@ import ProfileData from './ProfileData'
 
 const ProfileInfo = (props) => {
 
-    let [editMode, setEditMode] = useState(false)
+    let [editMode, setEditMode] = useState(false);
 
     if (!props.profile) {
         return <Preloader />
+    }
+
+    const onSubmit = (formData) => {
+        console.log(formData);
     }
 
     return (
@@ -22,7 +26,7 @@ const ProfileInfo = (props) => {
                 </div>
                 
                 {editMode
-                    ? <ProfileDataForm profile={props.profile} isOwner={props.isOwner} savePhoto={props.savePhoto}/>
+                    ? <ProfileDataForm profile={props.profile} isOwner={props.isOwner} savePhoto={props.savePhoto} onSubmit={onSubmit}/>
                     : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={props.profile} isOwner={props.isOwner} />}
             </div>
             <ProfileStatusHook status={props.status} updateStatus={props.updateStatus} />

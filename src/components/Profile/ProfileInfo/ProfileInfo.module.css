@@ -41,7 +41,7 @@
     content: "";
     border-top: .1px solid #fff;
     width: 100%;
-    transform: translateY(-1rem);
+    transform: translateY(2rem);
   }
 
   .icons {
