@@ -15,7 +15,8 @@ const ProfileInfo = (props) => {
     }
 
     const onSubmit = (formData) => {
-        console.log(formData);
+        props.saveProfileData(formData);
+        setEditMode(false)
     }
 
     return (
@@ -26,7 +27,7 @@ const ProfileInfo = (props) => {
                 </div>
                 
                 {editMode
-                    ? <ProfileDataForm profile={props.profile} isOwner={props.isOwner} savePhoto={props.savePhoto} onSubmit={onSubmit}/>
+                    ? <ProfileDataForm initialValues={props.profile} profile={props.profile} isOwner={props.isOwner} savePhoto={props.savePhoto} onSubmit={onSubmit}/>
                     : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={props.profile} isOwner={props.isOwner} />}
             </div>
             <ProfileStatusHook status={props.status} updateStatus={props.updateStatus} />

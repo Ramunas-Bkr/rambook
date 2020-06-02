@@ -5,9 +5,6 @@ const ProfileData = (props) => {
 
     return (
         <div>
-            {props.isOwner && <div>
-                <button onClick={props.goToEditMode}>Edit</button>
-            </div>}
             <div className={classes.profileInfo}>
                 <h2>{props.profile.fullName}</h2>
                 <p>{props.profile.aboutMe}</p>
@@ -24,6 +21,9 @@ const ProfileData = (props) => {
                     return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
                 })}
             </div>
+            {props.isOwner && <div>
+                <button onClick={props.goToEditMode}>Edit</button>
+            </div>}
         </div>
     )
 }
