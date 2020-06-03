@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import { Input, createField } from '../../common/FormsControls/FormsControls'
 import { required } from '../../../utils/validators/validators'
 
-const LoginForm = ({ handleSubmit }, { error }) => {
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -20,6 +20,8 @@ const LoginForm = ({ handleSubmit }, { error }) => {
             {error && <div className={classes.summaryError}>
                 {error}
             </div>}
+            {captchaUrl && <img src={captchaUrl} alt="captcha" />}
+            {captchaUrl && createField("Symbols from image", "captcha", [required], Input)}
             <div>
                 <button> Login </button>
             </div>
