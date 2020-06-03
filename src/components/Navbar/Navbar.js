@@ -5,7 +5,7 @@ import Friends from './Friends.js/Friends'
 
 const Navbar = (props) => {
     const friendElements = props.friends.map(p =>
-        <Friends name={p.name}
+        <Friends key={p.id} name={p.name}
             avatar={p.avatar}
         />)
 

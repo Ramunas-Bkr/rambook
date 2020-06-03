@@ -6,7 +6,9 @@ import PostReduxForm from './MyPostsForm'
 const MyPosts = React.memo(props => {
 
     const postElement = props.posts.map( p => 
-    <Post message={p.message}
+    <Post 
+        key={p.id}
+        message={p.message}
         likecount={p.likecount}
     /> )
 

@@ -11,9 +11,11 @@ const ProfileDataForm = (props) => {
             props.savePhoto(e.target.files[0])
         }
     }
-
     return (
         <div>
+        {props.error && <div className={classes.summaryError}>
+                {props.error}
+            </div>}
             <div>
                 <input type="file" onChange={onProfilePictureSelected} />
             </div>
@@ -25,11 +27,14 @@ const ProfileDataForm = (props) => {
                     <h5>Looking for a Job?: {createField("", "lookingForAJob", [], Input, { type: "checkbox" })} </h5>
                     <h5>My professional skils: </h5>{createField("My professional skils", "lookingForAJobDescription", [], Textarea)}
                 </div>
-                {/* <div>
+                <div>
                 {Object.keys(props.profile.contacts).map(key => {
-                    return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
+                    return <div key={key}> 
+                        <b>{key}: </b>
+                        {createField(key, "contacts." + key, [], Input)}
+                    </div>
                 })}
-            </div> */}
+            </div>
                 <div>
                     <Button name={"Save"} />
                 </div>
