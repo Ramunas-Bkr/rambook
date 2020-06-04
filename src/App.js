@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
 import styles from './App.module.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
@@ -35,17 +35,22 @@ class App extends Component {
       <div className={styles.App}>
         <HeaderContainer />
         <NavbarContainer />
-        <div className={styles.content}>
-          <Route path='/profile/:userId?' 
-            render={withSuspense(ProfileContainer)}/>
-          <Route path='/dialogs' render={withSuspense(DialogsContainer)} />
-          <Route path='/login' render={() => <Login />} />
-          <Route path='/news' component={News} />
-          <Route path='/music' component={Music} />
-          <Route path='/users' render={() => <UsersContainer />} />
-          <Route path='/settings' component={Settings} />
 
+        <div className={styles.content}>
+          <Switch>
+            <Route path='/profile/:userId?'
+              render={withSuspense(ProfileContainer)} />
+            <Route path='/dialogs' render={withSuspense(DialogsContainer)} />
+            <Route path='/login' render={() => <Login />} />
+            <Route path='/news' component={News} />
+            <Route path='/music' component={Music} />
+            <Route path='/users' render={() => <UsersContainer />} />
+            <Route path='/settings' component={Settings} />
+            <Redirect from="/" to="/profile" />
+            <Route path='*' render={() => <div> Error 404. Page not found</div>} />
+          </Switch>
         </div>
+
       </div>
     )
   }
